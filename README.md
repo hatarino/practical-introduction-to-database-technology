@@ -39,10 +39,37 @@ sudo mkdir /var/lib/mysql
 sudo chown -R mysql:mysql /var/lib/mysql
 ```
 
-- Create database.
+- Create MySQL database.
 ```
 cd /usr/mysql
 sudo apt-get update
 sudo apt-get install libaio1
 sudo ./scripts/mysql_install_db --datadir=/var/lib/mysql --user=mysql
+```
+
+- Create config file.
+- Add the following content to `/etc/my.cnf`.
+```
+[mysqld]
+user=mysql
+basedir=/usr/mysql
+datadir=/var/lib/mysql
+port=3306
+socket=/tmp/mysql.sock
+```
+
+- Startup MySQL.
+```
+./bin/mysqld_safe &
+```
+
+- Connect MySQL.
+```
+sudo apt-get install libncurses5
+./bin/mysql -uroot test
+```
+
+- Shutdown MySQL.
+```
+./bin/mysqladmin shutdown -uroot
 ```
