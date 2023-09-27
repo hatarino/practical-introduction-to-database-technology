@@ -1,0 +1,16 @@
+/*!40019 SET @@session.max_insert_delayed_threads=0*/;
+/*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
+DELIMITER /*!*/;
+# at 4
+#230920 17:48:45 server id 1  end_log_pos 107 	Start: binlog v 4, server v 5.5.17-log created 230920 17:48:45 at startup
+ROLLBACK/*!*/;
+BINLOG '
+7bEKZQ8BAAAAZwAAAGsAAAAAAAQANS41LjE3LWxvZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAADtsQplEzgNAAgAEgAEBAQEEgAAVAAEGggAAAAICAgCAA==
+'/*!*/;
+# at 107
+#230920 17:50:42 server id 1  end_log_pos 126 	Stop
+DELIMITER ;
+# End of log file
+ROLLBACK /* added by mysqlbinlog */;
+/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
