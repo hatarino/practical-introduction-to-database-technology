@@ -49,10 +49,6 @@ $ sudo ./scripts/mysql_install_db --datadir=/var/lib/mysql --user=mysql
 
 - Create config file.
 - Add the following content to `/etc/my.cnf`.
-
-
-- Create config file.
-- Add the following content to `/etc/my.cnf`.
 ```
 [mysqld]
 user=mysql
