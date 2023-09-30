@@ -10,7 +10,7 @@ Architecture: x86_64
 ```
 
 ```
-ldd --version
+$ ldd --version
 ldd (Ubuntu GLIBC 2.35-0ubuntu3.1) 2.35
 ```
 
@@ -19,33 +19,37 @@ ldd (Ubuntu GLIBC 2.35-0ubuntu3.1) 2.35
 
 - Open tar.gz file.
 ```
-tar -zxf mysql-5.5.17-linux2.6-x86_64.tar.gz
+$ tar -zxf mysql-5.5.17-linux2.6-x86_64.tar.gz
 ```
 
 - Move file.
 ```
-sudo mv mysql-5.5.17-linux2.6-x86_64/ /usr/mysql
+$ sudo mv mysql-5.5.17-linux2.6-x86_64/ /usr/mysql
 ```
 
 - Create user and group.
 ```
-sudo groupadd mysql
-sudo useradd -g mysql mysql
+$ sudo groupadd mysql
+$ sudo useradd -g mysql mysql
 ```
 
 - Create data directory.
 ```
-sudo mkdir /var/lib/mysql
-sudo chown -R mysql:mysql /var/lib/mysql
+$ sudo mkdir /var/lib/mysql
+$ sudo chown -R mysql:mysql /var/lib/mysql
 ```
 
 - Create MySQL database.
 ```
-cd /usr/mysql
-sudo apt-get update
-sudo apt-get install libaio1
-sudo ./scripts/mysql_install_db --datadir=/var/lib/mysql --user=mysql
+$ cd /usr/mysql
+$ sudo apt-get update
+$ sudo apt-get install libaio1
+$ sudo ./scripts/mysql_install_db --datadir=/var/lib/mysql --user=mysql
 ```
+
+- Create config file.
+- Add the following content to `/etc/my.cnf`.
+
 
 - Create config file.
 - Add the following content to `/etc/my.cnf`.
@@ -60,16 +64,16 @@ socket=/tmp/mysql.sock
 
 - Startup MySQL.
 ```
-./bin/mysqld_safe &
+$ ./bin/mysqld_safe &
 ```
 
 - Connect MySQL.
 ```
-sudo apt-get install libncurses5
-./bin/mysql -uroot test
+$ sudo apt-get install libncurses5
+$ ./bin/mysql -uroot test
 ```
 
 - Shutdown MySQL.
 ```
-./bin/mysqladmin shutdown -uroot
+$ ./bin/mysqladmin shutdown -uroot
 ```
